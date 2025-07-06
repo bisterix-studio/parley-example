@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ParleyCharacterStore" load_steps=5 format=3 uid="uid://6w4oyev8qi0p"]
+
+[ext_resource type="Script" uid="uid://cr1va2oab5tn5" path="res://addons/parley/models/character.gd" id="1_yumch"]
+[ext_resource type="Script" uid="uid://cbi8x2vk7bku1" path="res://addons/parley/stores/character/character_store.gd" id="2_1iyyr"]
+
+[sub_resource type="Resource" id="Resource_yumch"]
+script = ExtResource("1_yumch")
+id = "alice"
+name = "Alice"
+
+[sub_resource type="Resource" id="Resource_1iyyr"]
+script = ExtResource("1_yumch")
+id = "bob"
+name = "Bob"
+
+[resource]
+script = ExtResource("2_1iyyr")
+characters = Array[ExtResource("1_yumch")]([SubResource("Resource_yumch"), SubResource("Resource_1iyyr")])
+id = ""

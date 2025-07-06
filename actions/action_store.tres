@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ParleyActionStore" load_steps=3 format=3 uid="uid://b32upr5g2fi6n"]
+
+[ext_resource type="Script" uid="uid://cel0yoviy6eqi" path="res://addons/parley/models/action.gd" id="1_ohg4s"]
+[ext_resource type="Script" uid="uid://b3tj6amhgmct6" path="res://addons/parley/stores/action/action_store.gd" id="2_6wvxp"]
+
+[resource]
+script = ExtResource("2_6wvxp")
+actions = Array[ExtResource("1_ohg4s")]([])
+id = ""

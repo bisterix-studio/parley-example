@@ -11,5 +11,26 @@ config_version=5
 [application]
 
 config/name="Parley example"
+run/main_scene="uid://ce2m8afvhptm3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Parley="*res://addons/parley/./parley_runtime.gd"
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/parley/plugin.cfg")
+
+[parley]
+
+stores/character_store_path="uid://6w4oyev8qi0p"
+stores/action_store_path="uid://b32upr5g2fi6n"
+stores/fact_store_path="uid://c5ipcj8fud27e"
