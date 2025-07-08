@@ -31,5 +31,10 @@ func _on_cancel_button_pressed() -> void:
 
 func _on_create_button_pressed() -> void:
 	hide()
-	var dialogue_sequence_ast: ParleyDialogueSequenceAst = await ParleyUtils.file.create_new_resource(ParleyDialogueSequenceAst.new(), path_edit.text)
-	dialogue_ast_created.emit(dialogue_sequence_ast)
+	var dialogue_sequence_ast: ParleyDialogueSequenceAst = await ParleyUtils.file.create_new_resource(
+		ParleyDialogueSequenceAst.new(),
+		path_edit.text,
+		get_tree().create_timer(30).timeout
+	)
+	if dialogue_sequence_ast:
+		dialogue_ast_created.emit(dialogue_sequence_ast)

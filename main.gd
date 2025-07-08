@@ -1,6 +1,7 @@
 extends Node
 
-var dialogue_sequence_ast: ParleyDialogueSequenceAst = preload('res://dialogue_sequences/dialogue.ds')
+const basic_dialogue: ParleyDialogueSequenceAst = preload("res://dialogue_sequences/my_dialogue.ds")
 
 func _ready() -> void:
-	var _result: Node = Parley.start_dialogue({}, dialogue_sequence_ast)
+  # Trigger the start of the Dialogue Sequence processing using the Parley autoload
+	var _result: Node = Parley.start_dialogue({}, basic_dialogue)

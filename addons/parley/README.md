@@ -1,5 +1,7 @@
 # Parley
 
+![parley-icon](./icon.png)
+
 Parley is an addon for [Godot 4.4+](https://godotengine.org/) that provides a
 graph-based dialogue manager for easy writing, testing, and running of Dialogue
 Sequences at scale and is designed to be used by game writers and developers
@@ -14,6 +16,7 @@ You can install it via the Asset Library or
 from GitHub.
 
 [![GitHub Licence](https://img.shields.io/github/license/bisterix-studio/parley?style=flat-square)](https://raw.githubusercontent.com/bisterix-studio/parley/main/LICENSE)
+[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/bisterix-studio/parley)
 
 ![Example usage of Parley](https://parley.bisterixstudio.com/illustration/parley-graph-view.gif)
 
@@ -54,6 +57,16 @@ Installation Features Examples Support Useful links Licence Contributions
 - Easy management of your Dialogue Sequences, including node filtering
 - Export your Dialogue passages to CSV
 
+## Upcoming Features
+
+Here are some key features on the Parley horizon. We are always open to new
+ideas, please don't hesitate to
+[get-in-touch](https://github.com/bisterix-studio/parley/issues).
+
+- Translation support
+- Jump Nodes
+- Dialogue text expressions
+
 ## Installation
 
 You can install it via the Asset Library or
@@ -87,6 +100,12 @@ submit an issue if you have any further data on this issue.
 
 Parley is 100% free and open-source, under the MIT licence.
 [The license is distributed with Parley and can be found in the `addons/parley` folder](https://github.com/bisterix-studio/parley/blob/main/addons/parley/LICENSE).
+
+This package is [Treeware](https://treeware.earth). If you use it in production,
+then we ask that you
+[**buy the world a tree**](https://plant.treeware.earth/bisterix-studio/parley)
+to thank us for our work. By contributing to the Treeware forest you’ll be
+creating employment for local families and restoring wildlife habitats.
 
 ## Contributions
 

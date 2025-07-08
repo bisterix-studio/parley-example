@@ -69,7 +69,7 @@ class generate:
 
 
 class file:
-	static func create_new_resource(resource: Resource, raw_path: String) -> Resource:
+	static func create_new_resource(resource: Resource, raw_path: String, timeout: Signal) -> Resource:
 		var path: String = raw_path.simplify_path() if raw_path.begins_with('res://') else "res://%s" % raw_path.simplify_path()
 		var dir: String = path.get_base_dir()
 		if not DirAccess.dir_exists_absolute(dir):
@@ -86,7 +86,12 @@ class file:
 		# the saved resource into memory for use within the Parley Graph view.
 		if Engine.is_editor_hint():
 			EditorInterface.get_resource_filesystem().scan()
-			EditorInterface.get_resource_filesystem().update_file(path)
-			EditorInterface.get_resource_filesystem().scan()
-			await EditorInterface.get_resource_filesystem().filesystem_changed
+			signals.safe_connect(timeout, _emit_filesystem_changed.bind(timeout))
+			while EditorInterface.get_resource_filesystem().get_scanning_progress() < 1:
+				await EditorInterface.get_resource_filesystem().filesystem_changed
+			signals.safe_disconnect(timeout, _emit_filesystem_changed)
 		return load(path)
+	
+	static func _emit_filesystem_changed(timeout: Signal) -> void:
+		EditorInterface.get_resource_filesystem().filesystem_changed.emit()
+		signals.safe_disconnect(timeout, _emit_filesystem_changed)
