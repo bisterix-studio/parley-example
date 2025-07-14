@@ -3,6 +3,9 @@
 @tool
 
 #region General
+# TODO: figure out better way of getting this version as it is duplicated
+const VERSION: String = "2.0.0"
+const AST_VERSION: String = "1.0.0"
 const USER_CONFIG_PATH: String = "user://parley_user_config.json"
 #endregion
 

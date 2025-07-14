@@ -3,17 +3,26 @@
 @tool
 extends EditorImportPlugin
 
-const compiler_version: String = "0.2.0"
+
+#region DEFS
+const ParleyConstants = preload('./constants.gd')
+#endregion
+
+
+const ast_version: String = ParleyConstants.AST_VERSION
+
 
 enum Presets {DEFAULT}
 
+
 func _get_importer_name() -> String:
-	# NOTE: A change to this forces a re-import of all dialogue
-	return "parley_dialogue_ast_compiler_%s" % compiler_version
+	# NOTE: A change to this forces a re-import of all Dialogue Sequences
+	return "parley_dialogue_sequence_ast_%s" % ast_version
+
 
 func _get_visible_name() -> String:
-	# "Import as Parley Dialogue AST"
-	return "Parley Dialogue AST"
+	# "Import as Parley Dialogue Sequence AST"
+	return "Parley Dialogue Sequence AST"
 
 
 func _get_recognized_extensions() -> PackedStringArray:
@@ -68,7 +77,7 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 	var raw_text: String = file.get_as_text()
 	var raw_ast: Variant = JSON.parse_string(raw_text)
 	if not is_instance_of(raw_ast, TYPE_DICTIONARY):
-		ParleyUtils.log.error("Unable to load Parley Dialogue JSON as valid AST because it is not a valid dictionary")
+		push_error(ParleyUtils.log.error_msg("Unable to load Parley Dialogue JSON as valid AST because it is not a valid dictionary"))
 		return ERR_PARSE_ERROR
 	var ast_dict: Dictionary = raw_ast
 
@@ -77,13 +86,13 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 	var _nodes: Variant = ast_dict.get('nodes')
 	var _edges: Variant = ast_dict.get('edges')
 	if not is_instance_of(_title, TYPE_STRING):
-		ParleyUtils.log.error("Unable to load Parley Dialogue JSON as valid AST because required field 'title' is not a valid string")
+		push_error(ParleyUtils.log.error_msg("Unable to load Parley Dialogue JSON as valid AST because required field 'title' is not a valid string"))
 		return ERR_PARSE_ERROR
 	if not is_instance_of(_nodes, TYPE_ARRAY):
-		ParleyUtils.log.error("Unable to load Parley Dialogue JSON as valid AST because required field 'nodes' is not a valid Array")
+		push_error(ParleyUtils.log.error_msg("Unable to load Parley Dialogue JSON as valid AST because required field 'nodes' is not a valid Array"))
 		return ERR_PARSE_ERROR
 	if not is_instance_of(_edges, TYPE_ARRAY):
-		ParleyUtils.log.error("Unable to load Parley Dialogue JSON as valid AST because required field 'edges' is not a valid Array")
+		push_error(ParleyUtils.log.error_msg("Unable to load Parley Dialogue JSON as valid AST because required field 'edges' is not a valid Array"))
 		return ERR_PARSE_ERROR
 	var title: String = _title
 	var nodes: Array = _nodes

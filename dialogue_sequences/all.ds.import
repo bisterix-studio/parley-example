@@ -1,6 +1,6 @@
 [remap]
 
-importer="parley_dialogue_ast_compiler_0.2.0"
+importer="parley_dialogue_sequence_ast_1.0.0"
 type="Resource"
 uid="uid://ci3p7ssk1r1fx"
 path="res://.godot/imported/all.ds-d8506930102030864fdc0be22ee21873.tres"

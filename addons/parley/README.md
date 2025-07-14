@@ -11,7 +11,8 @@ Write your Dialogue Sequences by defining the graph for your Dialogue Sequence
 which are backed by a well-defined Dialogue AST for easy management and
 integration within your game.
 
-You can install it via the Asset Library or
+You can install it via the
+[Asset Library](https://godotengine.org/asset-library/asset/4132) or
 [downloading a copy](https://github.com/bisterix-studio/parley/archive/refs/heads/main.zip)
 from GitHub.
 
@@ -22,13 +23,12 @@ from GitHub.
 
 ## Table of contents
 
-- [Table of contents](#table-of-contents)
 - [Features](#features)
+- [Upcoming Features](#upcoming-features)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Support](#support)
 - [Known Issues and Troubleshooting](#known-issues-and-troubleshooting)
-  - [Parts of Godot are unresponsive in MacOS after close a test dialogue scene via the close button](#parts-of-godot-are-unresponsive-in-macos-after-close-a-test-dialogue-scene-via-the-close-button)
 - [Licence](#licence)
 - [Contributions](#contributions)
 
@@ -37,16 +37,17 @@ Installation Features Examples Support Useful links Licence Contributions
 ## Features
 
 - An easy-to-use and well-defined Graph Editor
-- A wide variety of nodes for maximum flexibility and creativity:
+- A wide variety of Nodes for maximum flexibility and creativity:
   - [Dialogue](https://parley.bisterixstudio.com/docs/nodes/dialogue-node)
   - [Dialogue Option](https://parley.bisterixstudio.com/docs/nodes/dialogue-option-node)
   - [Condition](https://parley.bisterixstudio.com/docs/nodes/condition-node)
   - [Match](https://parley.bisterixstudio.com/docs/nodes/match-node)
   - [Action](https://parley.bisterixstudio.com/docs/nodes/action-node)
+  - [Jump](https://parley.bisterixstudio.com/docs/nodes/jump-node)
   - [Group](https://parley.bisterixstudio.com/docs/nodes/group-node)
   - [Start](https://parley.bisterixstudio.com/docs/nodes/start-node)
   - [End](https://parley.bisterixstudio.com/docs/nodes/end-node)
-- Creation of connections between nodes to easily see the flow of your dialogue
+- Creation of connections between Nodes to easily see the flow of your dialogue
   sequence
 - Easy testing of your dialogue at any stage in the sequence
 - Well-defined Dialogue AST for easy review and management of Dialogue Sequences
@@ -54,7 +55,7 @@ Installation Features Examples Support Useful links Licence Contributions
 - Action store for management of actions for use with Action nodes
 - Fact store for management of facts for use with Condition and Match nodes
 - An out of the box dialogue balloon to get started straight away
-- Easy management of your Dialogue Sequences, including node filtering
+- Easy management of your Dialogue Sequences, including Node filtering
 - Export your Dialogue passages to CSV
 
 ## Upcoming Features
@@ -64,7 +65,6 @@ ideas, please don't hesitate to
 [get-in-touch](https://github.com/bisterix-studio/parley/issues).
 
 - Translation support
-- Jump Nodes
 - Dialogue text expressions
 
 ## Installation

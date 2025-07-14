@@ -7,7 +7,9 @@ const ParleyConstants = preload("./constants.gd")
 
 static var DEFAULT_SETTINGS: Dictionary = {
 	# Dialogue
-	ParleyConstants.DIALOGUE_BALLOON_PATH: ParleyUtils.resource.get_uid(preload("./components/default_balloon.tscn")),
+	# Path: res://addons/parley/components/default_balloon.tscn
+	# This must be hard-coded here otherwise, we get compilation errors in the autoload
+	ParleyConstants.DIALOGUE_BALLOON_PATH: "uid://cf8jukut3b8qq",
 	# Stores
 	ParleyConstants.CHARACTER_STORE_PATH: "res://characters/character_store.tres",
 	ParleyConstants.ACTION_STORE_PATH: "res://actions/action_store.tres",
@@ -73,7 +75,7 @@ static func prepare(save: bool = true) -> void:
 	if save:
 		var result: int = ProjectSettings.save()
 		if result != OK:
-			ParleyUtils.log.error("Unable to save Parley project settings: %d" % [result])
+			push_error(ParleyUtils.log.error_msg("Unable to save Parley project settings: %d" % [result]))
 
 
 static func get_user_config() -> Dictionary:
@@ -93,7 +95,7 @@ static func save_user_config(user_config: Dictionary) -> void:
 	var file: FileAccess = FileAccess.open(ParleyConstants.USER_CONFIG_PATH, FileAccess.WRITE)
 	var result: bool = file.store_string(JSON.stringify(user_config))
 	if not result:
-		ParleyUtils.log.error("Unable to save Parley user config")
+		push_error(ParleyUtils.log.error_msg("Unable to save Parley user config"))
 
 
 static func set_user_value(key: String, value: Variant) -> void:
@@ -114,7 +116,7 @@ static func set_setting(key: String, value: Variant, save: bool = false) -> void
 	if save:
 		var result: int = ProjectSettings.save()
 		if result != OK:
-			ParleyUtils.log.error("Unable to save Parley project settings: %d" % [result])
+			push_error(ParleyUtils.log.error_msg("Unable to save Parley project settings: %d" % [result]))
 
 
 static func get_setting(key: String, default: Variant = null) -> Variant:
@@ -130,6 +132,6 @@ static func get_setting(key: String, default: Variant = null) -> Variant:
 
 static func validate_setting_key(key: String) -> bool:
 	if not key.begins_with("parley/"):
-		ParleyUtils.log.error("Invalid Parley setting key. Key %s does not start with the correct scope: parley/")
+		push_error(ParleyUtils.log.error_msg("Invalid Parley setting key. Key %s does not start with the correct scope: parley/"))
 		return false
 	return true
